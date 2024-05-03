@@ -26,7 +26,7 @@ class Palindrome(unittest.TestCase):
                 resultat = VerificateurPalindrome.verif(chaine)
     # ALORS la chaîne est renvoyée en miroir
                 attendu = chaine[::-1]
-                self.assertEqual(attendu, resultat)
+                self.assertEqual(attendu," ".join(resultat.split(" ")[1:]))
 
 
     def test_est_palindrome(self):
@@ -38,7 +38,7 @@ class Palindrome(unittest.TestCase):
             with self.subTest(chaine):
                 resultat = VerificateurPalindrome.verif(chaine)
     #ALORS celui-ci est renvoyé #ET « Bien dit » est envoyé ensuite
-                self.assertEqual(chaine + " Bien dit", resultat)
+                self.assertEqual(chaine + " Bien dit",  " ".join(resultat.split(" ")[1:]))
     
 
     def test_bonjour_aurevoir(self):
@@ -49,7 +49,7 @@ class Palindrome(unittest.TestCase):
         resultat = VerificateurPalindrome.verif(chaine)
     #ALORS « Bonjour » est envoyé avant toute réponse
         #self.assertEqual("Bonjour ", resultat.split(" ")[0])
-        self.assertEqual("Bonjour toi", resultat)
+        self.assertEqual("Bonjour iot", resultat)
 
 
 

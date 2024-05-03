@@ -6,6 +6,6 @@ class VerificateurPalindrome:
             chaine =  (chaine[::-1]+" Bien dit")
         else:
             chaine = chaine[::-1]
-        return "Bonjour toi"
+        return "Bonjour " + chaine
             
     
