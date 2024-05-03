@@ -5,33 +5,26 @@ from src.verificateur_palindrome import VerificateurPalindrome
 
 class Palindrome(unittest.TestCase):
 
-    def test_palindrome1(self):
+    def test_palindrome(self):
         
-        # ETANT DONNE un mot normal
+    # ETANT DONNE 1 liste de mots
 
-        chaîne = "epsi"
+        cas  = ["epsi","test"]
 
-         # QUAND on test si c'est un palindrome
-
-        resultat = VerificateurPalindrome.verif(chaîne)
-
-         # ALORS on a le mot en miroir
-
-        self.assertEqual("ispe", resultat)
-
-    def test_palindrome2(self):
+    # QUAND on verifie si se sont des palindrome
         
-        # ETANT DONNE un 2eme mot normal
 
-        chaîne = "test"
+        for chaine in cas:
 
-         # QUAND on test si c'est un palindrome
+            resultat = VerificateurPalindrome.verif(chaine)
 
-        resultat = VerificateurPalindrome.verif(chaîne)
 
-         # ALORS on à le mot en miroir
+    # ALORS la chaîne est renvoyée en miroir
 
-        self.assertEqual("tset", resultat)
+            attendu = chaine[::-1]
+
+            self.assertEqual(attendu, resultat)
+
 
 
 
