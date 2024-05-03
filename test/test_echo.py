@@ -25,7 +25,7 @@ class Palindrome(unittest.TestCase):
         
       # ETANT DONNE 1 liste de mots
         cas  = [self.MOT_ORDINAIRE,self.motaleatoire(10),self.motaleatoire(100)]
-        verificateur = VerificateurPalindromeBuilder.par_defaut()
+        verificateur = VerificateurPalindromeBuilder().par_defaut()
 
 
       # QUAND on verifie si se sont des palindrome
@@ -43,16 +43,19 @@ class Palindrome(unittest.TestCase):
       # ETANT DONNE un palindrome
         list_langue = self.LIST_LANGUE
         cas  = [self.MOT_PALINDROME,self.palindromealeatoire(10)]
-        verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
+        
 
       #QUAND on l'ecrit
         for langue in list_langue:
+
+            verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
+
             for chaine in cas:
                 with self.subTest(chaine):
                     resultat = verificateur.verif(chaine)
 
       #ALORS celui-ci est renvoyé #ET « Bien dit » est envoyé ensuite
-                    self.assertEqual(chaine + " Well said", " ".join(resultat.split(" ")[1:-2]))
+                    self.assertEqual(chaine + langue.feliciter(), " ".join(resultat.split(" ")[1:-2]))
         
 
 
@@ -61,19 +64,22 @@ class Palindrome(unittest.TestCase):
       # ETANT DONNE une chaine de caractere
         list_langue = self.LIST_LANGUE
         cas  = [self.MOT_ORDINAIRE,self.MOT_PALINDROME]
-        verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
+        
 
       #QUAND on la saisie
         for langue in list_langue:
+
+            verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
+
             for chaine in cas:
                 with self.subTest(chaine):
                     resultat = verificateur.verif(chaine)
 
       #ALORS « Bonjour » est envoyé avant toute réponse #ET « au revoir » est envoyé a la fin
-                bonjour = [resultat.split(" ")[0]]
-                aurevoir = resultat.split(" ")[-2:]
-                result = bonjour+aurevoir
-                self.assertEqual(["Bonjour", "Au", "revoir"], result)
+                bonjour = resultat.split(" ")[0]
+                aurevoir = " ".join(resultat.split(" ")[-2:])
+                result = [bonjour+" "," "+aurevoir]
+                self.assertEqual(langue.saluer(), result)
 
 if __name__ == '__main__':
     unittest.main()

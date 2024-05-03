@@ -1,9 +1,9 @@
-from src.langue_defaut import langueDefaut
+from src.langue_francaise import LangueFrançaise
 from src.verificateur_palindrome import VerificateurPalindrome
 
 class VerificateurPalindromeBuilder:
 
-    __langue =  langueDefaut()
+    __langue =  LangueFrançaise()
 
     def build(self) -> VerificateurPalindrome:
         return VerificateurPalindrome(self.__langue)
