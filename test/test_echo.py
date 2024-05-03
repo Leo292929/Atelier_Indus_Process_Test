@@ -41,7 +41,7 @@ class Palindrome(unittest.TestCase):
                 self.assertEqual(chaine + " Bien dit",  " ".join(resultat.split(" ")[1:-2]))
     
 
-    def test_bonjour(self):
+    def test_bonjour_aurevoir(self):
 
     # ETANT DONNE une chaine de caractere
         cas  = ["kayak","epsi",self.motaleatoire(10)]
@@ -49,20 +49,12 @@ class Palindrome(unittest.TestCase):
         for chaine in cas:
             with self.subTest(chaine):
                 resultat = VerificateurPalindrome.verif(chaine)
-    #ALORS « Bonjour » est envoyé avant toute réponse
-        self.assertEqual("Bonjour", str(resultat.split(" ")[0]))
+    #ALORS « Bonjour » est envoyé avant toute réponse #ET « au revoir » est envoyé a la fin
+            bonjour = [resultat.split(" ")[0]]
+            aurevoir = resultat.split(" ")[-2:]
+            result = bonjour+aurevoir
+            self.assertEqual(["Bonjour", "Au", "revoir"], result)
 
-    
-    def test_aurevoir(self):
-
-    # ETANT DONNE une chaine de caractere
-        cas  = ["kayak","epsi",self.motaleatoire(10)]
-    #QUAND on la saisie
-        for chaine in cas:
-            with self.subTest(chaine):
-                resultat = VerificateurPalindrome.verif(chaine)
-    #ALORS « Bonjour » est envoyé avant toute réponse
-        self.assertEqual("Au revoir", " ".join(resultat.split(" ")[-2:]))
 
 
 if __name__ == '__main__':
