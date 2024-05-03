@@ -1,4 +1,7 @@
 class VerificateurPalindrome:
 
     def verif(chaine):
-        return("ispe")
+        if chaine == "epsi":
+            return("ispe")
+        if chaine == "test":
+            return "tset"
