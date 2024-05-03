@@ -19,6 +19,7 @@ class Palindrome(unittest.TestCase):
     MOT_ORDINAIRE = "palindrome"
     MOT_PALINDROME = "kayak"
 
+    LIST_LANGUE = [LangueAnglaise,LangueFrançaise]
 
     def test_pas_palindrome(self):
         
@@ -36,75 +37,43 @@ class Palindrome(unittest.TestCase):
                 attendu = chaine[::-1]
                 self.assertEqual(attendu," ".join(resultat.split(" ")[1:-2]))
 
-
-
-    def test_est_palindrome_fr(self):
+   
+    def test_est_palindrome(self):
 
       # ETANT DONNE un palindrome
-        langue = LangueFrançaise
+        list_langue = self.LIST_LANGUE
         cas  = [self.MOT_PALINDROME,self.palindromealeatoire(10)]
         verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
 
       #QUAND on l'ecrit
-        for chaine in cas:
-            with self.subTest(chaine):
-                resultat = verificateur.verif(chaine)
+        for langue in list_langue:
+            for chaine in cas:
+                with self.subTest(chaine):
+                    resultat = verificateur.verif(chaine)
 
       #ALORS celui-ci est renvoyé #ET « Bien dit » est envoyé ensuite
-                self.assertEqual(chaine + " Bien dit", " ".join(resultat.split(" ")[1:-2]))
-    
-    def test_est_palindrome_ang(self):
-
-      # ETANT DONNE un palindrome
-        langue = LangueAnglaise
-        cas  = [self.MOT_PALINDROME,self.palindromealeatoire(10)]
-        verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
-
-      #QUAND on l'ecrit
-        for chaine in cas:
-            with self.subTest(chaine):
-                resultat = verificateur.verif(chaine)
-
-      #ALORS celui-ci est renvoyé #ET « Bien dit » est envoyé ensuite
-                self.assertEqual(chaine + " Well said", " ".join(resultat.split(" ")[1:-2]))
-    
+                    self.assertEqual(chaine + " Well said", " ".join(resultat.split(" ")[1:-2]))
+        
 
 
-    def test_bonjour_aurevoir_fr(self):
+    def test_bonjour_aurevoir(self):
 
       # ETANT DONNE une chaine de caractere
-        langue = LangueFrançaise
+        list_langue = self.LIST_LANGUE
         cas  = [self.MOT_ORDINAIRE,self.MOT_PALINDROME]
         verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
 
       #QUAND on la saisie
-        for chaine in cas:
-            with self.subTest(chaine):
-                resultat = verificateur.verif(chaine)
+        for langue in list_langue:
+            for chaine in cas:
+                with self.subTest(chaine):
+                    resultat = verificateur.verif(chaine)
 
       #ALORS « Bonjour » est envoyé avant toute réponse #ET « au revoir » est envoyé a la fin
-            bonjour = [resultat.split(" ")[0]]
-            aurevoir = resultat.split(" ")[-2:]
-            result = bonjour+aurevoir
-            self.assertEqual(["Bonjour", "Au", "revoir"], result)
-
-    def test_bonjour_aurevoir_ang(self):
-
-      # ETANT DONNE une chaine de caractere
-        langue = LangueAnglaise
-        cas  = [self.MOT_ORDINAIRE,self.MOT_PALINDROME]
-        verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
-
-      #QUAND on la saisie
-        for chaine in cas:
-            with self.subTest(chaine):
-                resultat = verificateur.verif(chaine)
-
-      #ALORS « Bonjour » est envoyé avant toute réponse #ET « au revoir » est envoyé a la fin
-            bonjour = [resultat.split(" ")[0]]
-            aurevoir = resultat.split(" ")[-2:]
-            result = bonjour+aurevoir
-            self.assertEqual(["Bonjour", "Au", "revoir"], result)
+                bonjour = [resultat.split(" ")[0]]
+                aurevoir = resultat.split(" ")[-2:]
+                result = bonjour+aurevoir
+                self.assertEqual(["Bonjour", "Au", "revoir"], result)
 
 if __name__ == '__main__':
     unittest.main()
