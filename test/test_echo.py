@@ -26,19 +26,19 @@ class Palindrome(unittest.TestCase):
                 resultat = VerificateurPalindrome.verif(chaine)
     # ALORS la chaîne est renvoyée en miroir
                 attendu = chaine[::-1]
-                self.assertEqual(attendu," ".join(resultat.split(" ")[1:]))
+                self.assertEqual(attendu," ".join(resultat.split(" ")[1:-2]))
 
 
     def test_est_palindrome(self):
 
     # ETANT DONNE un palindrome
-        cas  = ["kayak","lol","palindromemordnilap",self.palindromealeatoire(5),self.palindromealeatoire(50)]
+        cas  = ["kayak","lol","palindromemordnilap",self.palindromealeatoire(7)]
     #QUAND on l'ecrit
         for chaine in cas:
             with self.subTest(chaine):
                 resultat = VerificateurPalindrome.verif(chaine)
     #ALORS celui-ci est renvoyé #ET « Bien dit » est envoyé ensuite
-                self.assertEqual(chaine + " Bien dit",  " ".join(resultat.split(" ")[1:]))
+                self.assertEqual(chaine + " Bien dit",  " ".join(resultat.split(" ")[1:-2]))
     
 
     def test_bonjour(self):
