@@ -11,7 +11,7 @@ class Palindrome(unittest.TestCase):
         return ''.join(random.choice(lettres) for i in range(length))
 
 
-    def test_palindrome(self):
+    def test_pas_palindrome(self):
         
     # ETANT DONNE 1 liste de mots
 
@@ -21,18 +21,25 @@ class Palindrome(unittest.TestCase):
         
 
         for chaine in cas:
-
-            resultat = VerificateurPalindrome.verif(chaine)
+            with self.subTest(chaine):
+                resultat = VerificateurPalindrome.verif(chaine)
 
 
     # ALORS la chaîne est renvoyée en miroir
 
-            attendu = chaine[::-1]
+                attendu = chaine[::-1]
 
-            self.assertEqual(attendu, resultat)
+                self.assertEqual(attendu, resultat)
 
-
-
+    def test_est_palindrome(self):
+        
+    # ETANT DONNE un palindrome
+        chaine = "kayak"
+    #QUAND on l'ecrit
+        resultat = VerificateurPalindrome.verif(chaine)
+    #ALORS celui-ci est renvoyé #ET « Bien dit » est envoyé ensuite
+        self.assertEqual(chaine + " Bien dit", resultat)
+    
 
 if __name__ == '__main__':
     unittest.main()
