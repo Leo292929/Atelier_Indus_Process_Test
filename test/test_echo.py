@@ -32,11 +32,13 @@ class Palindrome(unittest.TestCase):
                 self.assertEqual(attendu, resultat)
 
     def test_est_palindrome(self):
-        
+
     # ETANT DONNE un palindrome
-        chaine = "kayak"
+        cas  = ["kayak","lol"]
     #QUAND on l'ecrit
-        resultat = VerificateurPalindrome.verif(chaine)
+        for chaine in cas:
+            with self.subTest(chaine):
+                resultat = VerificateurPalindrome.verif(chaine)
     #ALORS celui-ci est renvoyé #ET « Bien dit » est envoyé ensuite
         self.assertEqual(chaine + " Bien dit", resultat)
     
