@@ -1,7 +1,9 @@
 class VerificateurPalindrome:
+    def __init__(self, langue):
+        self.langue = langue
+        pass
 
-
-    def verif(chaine):
+    def verif(self,chaine):
         if(chaine==chaine[::-1]):
             chaine =  (chaine[::-1]+" Bien dit")
         else:
