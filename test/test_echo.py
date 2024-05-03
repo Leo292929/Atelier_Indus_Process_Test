@@ -38,11 +38,12 @@ class Palindrome(unittest.TestCase):
 
 
 
-    def test_est_palindrome(self):
+    def test_est_palindrome_fr(self):
 
       # ETANT DONNE un palindrome
+        langue = LangueFrançaise
         cas  = [self.MOT_PALINDROME,self.palindromealeatoire(10)]
-        verificateur = VerificateurPalindromeBuilder.par_defaut()
+        verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
 
       #QUAND on l'ecrit
         for chaine in cas:
@@ -51,6 +52,21 @@ class Palindrome(unittest.TestCase):
 
       #ALORS celui-ci est renvoyé #ET « Bien dit » est envoyé ensuite
                 self.assertEqual(chaine + " Bien dit", " ".join(resultat.split(" ")[1:-2]))
+    
+    def test_est_palindrome_ang(self):
+
+      # ETANT DONNE un palindrome
+        langue = LangueAnglaise
+        cas  = [self.MOT_PALINDROME,self.palindromealeatoire(10)]
+        verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
+
+      #QUAND on l'ecrit
+        for chaine in cas:
+            with self.subTest(chaine):
+                resultat = verificateur.verif(chaine)
+
+      #ALORS celui-ci est renvoyé #ET « Bien dit » est envoyé ensuite
+                self.assertEqual(chaine + " Well said", " ".join(resultat.split(" ")[1:-2]))
     
 
 
