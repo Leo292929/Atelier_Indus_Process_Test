@@ -42,11 +42,12 @@ class Palindrome(unittest.TestCase):
 
       # ETANT DONNE un palindrome
         cas  = [self.MOT_PALINDROME,self.palindromealeatoire(10)]
+        verificateur = VerificateurPalindromeBuilder.par_defaut()
 
       #QUAND on l'ecrit
         for chaine in cas:
             with self.subTest(chaine):
-                resultat = VerificateurPalindrome.verif(chaine)
+                resultat = verificateur.verif(chaine)
 
       #ALORS celui-ci est renvoyé #ET « Bien dit » est envoyé ensuite
                 self.assertEqual(chaine + " Bien dit", " ".join(resultat.split(" ")[1:-2]))
@@ -57,11 +58,12 @@ class Palindrome(unittest.TestCase):
 
       # ETANT DONNE une chaine de caractere
         cas  = [self.MOT_ORDINAIRE,self.MOT_PALINDROME]
+        verificateur = VerificateurPalindromeBuilder.par_defaut()
 
       #QUAND on la saisie
         for chaine in cas:
             with self.subTest(chaine):
-                resultat = VerificateurPalindrome.verif(chaine)
+                resultat = verificateur.verif(chaine)
 
       #ALORS « Bonjour » est envoyé avant toute réponse #ET « au revoir » est envoyé a la fin
             bonjour = [resultat.split(" ")[0]]
