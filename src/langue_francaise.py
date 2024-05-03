@@ -1,6 +1,6 @@
 class LangueFrançaise:
-    BIEN_DIT = "Bien dit !"
+    BIEN_DIT = " Bien dit"
 
     @classmethod
-    def féliciter(cls):
+    def feliciter(cls):
         return cls.BIEN_DIT

@@ -1,2 +1,3 @@
 class langueDefaut:
-    pass
+     def feliciter(cls):
+        pass

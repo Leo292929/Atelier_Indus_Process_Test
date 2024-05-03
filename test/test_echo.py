@@ -70,11 +70,12 @@ class Palindrome(unittest.TestCase):
     
 
 
-    def test_bonjour_aurevoir(self):
+    def test_bonjour_aurevoir_fr(self):
 
       # ETANT DONNE une chaine de caractere
+        langue = LangueFrançaise
         cas  = [self.MOT_ORDINAIRE,self.MOT_PALINDROME]
-        verificateur = VerificateurPalindromeBuilder.par_defaut()
+        verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
 
       #QUAND on la saisie
         for chaine in cas:
@@ -87,7 +88,23 @@ class Palindrome(unittest.TestCase):
             result = bonjour+aurevoir
             self.assertEqual(["Bonjour", "Au", "revoir"], result)
 
+    def test_bonjour_aurevoir_ang(self):
 
+      # ETANT DONNE une chaine de caractere
+        langue = LangueAnglaise
+        cas  = [self.MOT_ORDINAIRE,self.MOT_PALINDROME]
+        verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
+
+      #QUAND on la saisie
+        for chaine in cas:
+            with self.subTest(chaine):
+                resultat = verificateur.verif(chaine)
+
+      #ALORS « Bonjour » est envoyé avant toute réponse #ET « au revoir » est envoyé a la fin
+            bonjour = [resultat.split(" ")[0]]
+            aurevoir = resultat.split(" ")[-2:]
+            result = bonjour+aurevoir
+            self.assertEqual(["Bonjour", "Au", "revoir"], result)
 
 if __name__ == '__main__':
     unittest.main()

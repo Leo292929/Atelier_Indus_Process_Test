@@ -1,7 +1,7 @@
 class LangueAnglaise:
-    WELL_SAID = "Well said !"
+    WELL_SAID = " Well said"
 
     @classmethod
-    def féliciter(cls):
+    def feliciter(cls):
         return cls.WELL_SAID
 
