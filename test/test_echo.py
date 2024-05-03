@@ -9,7 +9,12 @@ class Palindrome(unittest.TestCase):
     def motaleatoire(cls, length):
         lettres = string.ascii_lowercase
         return ''.join(random.choice(lettres) for i in range(length))
-
+    def palindromealeatoire(cls, length):
+        lettres = string.ascii_lowercase
+        moitie = ''.join(random.choice(lettres) for i in range(length))
+        return (moitie+moitie[::-1])
+    
+    
 
     def test_pas_palindrome(self):
         
@@ -34,13 +39,13 @@ class Palindrome(unittest.TestCase):
     def test_est_palindrome(self):
 
     # ETANT DONNE un palindrome
-        cas  = ["kayak","lol"]
+        cas  = ["kayak","lol","palindromemordnilap",self.palindromealeatoire(5),self.palindromealeatoire(50)]
     #QUAND on l'ecrit
         for chaine in cas:
             with self.subTest(chaine):
                 resultat = VerificateurPalindrome.verif(chaine)
     #ALORS celui-ci est renvoyé #ET « Bien dit » est envoyé ensuite
-        self.assertEqual(chaine + " Bien dit", resultat)
+                self.assertEqual(chaine + " Bien dit", resultat)
     
 
 if __name__ == '__main__':
