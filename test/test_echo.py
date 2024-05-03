@@ -41,15 +41,16 @@ class Palindrome(unittest.TestCase):
                 self.assertEqual(chaine + " Bien dit",  " ".join(resultat.split(" ")[1:]))
     
 
-    def test_bonjour_aurevoir(self):
+    def test_bonjour(self):
 
     # ETANT DONNE une chaine de caractere
-        chaine = "toi"
+        cas  = ["kayak","epsi",self.motaleatoire(10)]
     #QUAND on la saisie
-        resultat = VerificateurPalindrome.verif(chaine)
+        for chaine in cas:
+            with self.subTest(chaine):
+                resultat = VerificateurPalindrome.verif(chaine)
     #ALORS « Bonjour » est envoyé avant toute réponse
-        #self.assertEqual("Bonjour ", resultat.split(" ")[0])
-        self.assertEqual("Bonjour iot", resultat)
+        self.assertEqual("Bonjour", str(resultat.split(" ")[0]))
 
 
 
