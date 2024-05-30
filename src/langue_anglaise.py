@@ -4,9 +4,9 @@ from moment import Moment
 class LangueAnglaise:
     BIEN_DIT = " Well said"
     BONJOUR_AM = "Hello am "
-    AU_REVOIR_AM = " Good bye am"
+    AU_REVOIR_AM = " Good bye am\r\n"
     BONJOUR_PM = "Hello pm "
-    AU_REVOIR_PM = " Good bye pm"
+    AU_REVOIR_PM = " Good bye pm\r\n"
 
     @classmethod
     def feliciter(cls):
