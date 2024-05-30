@@ -17,4 +17,3 @@ class VerificateurPalindrome:
             chaine = chaine[::-1]
         return bonjour + chaine + aurevoir
             
-    
