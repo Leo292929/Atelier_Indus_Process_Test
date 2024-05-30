@@ -92,16 +92,19 @@ class Palindrome(unittest.TestCase):
       # ETANT DONNE une chaine de caractere
       # (ET tout les parametre par defaut)
       cas = cas  = [self.MOT_ORDINAIRE,self.MOT_PALINDROME]
-      verificateur = VerificateurPalindromeBuilder().par_defaut()
+      list_langue = self.LIST_LANGUE
+
 
       # QUAND on arrive a la derniere ligne
-      for chaine in cas:
-          with self.subTest(chaine):
-              resultat = verificateur.verif(chaine)
-              resultat =resultat[-len(os.linesep):]
-      # ALORS on trouve un saut de ligne
-              attendu = os.linesep
-              self.assertEqual(attendu, resultat)
+      for langue in list_langue:
+          verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
+          for chaine in cas:
+              with self.subTest(chaine):
+                  resultat = verificateur.verif(chaine)
+                  resultat =resultat[-len(os.linesep):]
+          # ALORS on trouve un saut de ligne
+                  attendu = os.linesep
+                  self.assertEqual(attendu, resultat)
 
 if __name__ == '__main__':
     unittest.main()
