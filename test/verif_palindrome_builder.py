@@ -2,12 +2,14 @@ from src.langue_defaut import langueDefaut
 from src.verificateur_palindrome import VerificateurPalindrome
 
 
+
 class VerificateurPalindromeBuilder:
 
     __langue = langueDefaut()
+    __moment = None
 
     def build(self) -> VerificateurPalindrome:
-        return VerificateurPalindrome(self.__langue)
+        return VerificateurPalindrome(self.__langue, self.__moment)
     
     @classmethod
     def par_defaut(cls):
@@ -15,4 +17,8 @@ class VerificateurPalindromeBuilder:
     
     def avec_langue(self, langue):
         self.__langue = langue
+        return self
+
+    def avec_moment(self, moment):
+        self.__moment = moment
         return self
