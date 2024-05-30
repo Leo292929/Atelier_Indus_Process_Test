@@ -1,12 +1,12 @@
 from moment import Moment
-
+import os
 
 class LangueFrancaise:
-    BIEN_DIT = " Bien dit"
-    BONJOUR_AM = "Bonjour am "
-    AU_REVOIR_AM = " Au revoir am\r\n"
-    BONJOUR_PM = "Bonjour pm "
-    AU_REVOIR_PM = " Au revoir pm\r\n"
+    BIEN_DIT = os.linesep + "Bien dit"
+    BONJOUR_AM = "Bonjour" + os.linesep
+    AU_REVOIR_AM = os.linesep + "Au revoir am" + os.linesep
+    BONJOUR_PM = "Bonjour pm" + os.linesep
+    AU_REVOIR_PM = os.linesep + "Au revoir pm" + os.linesep
 
     @classmethod
     def feliciter(cls):

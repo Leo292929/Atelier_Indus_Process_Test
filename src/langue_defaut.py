@@ -1,12 +1,12 @@
 from moment import Moment
-
+import os
 
 class langueDefaut:
-    BIEN_DIT = " x x"
-    BONJOUR_AM = "x x "
-    AU_REVOIR_AM = " x x x\r\n"
-    BONJOUR_PM = "x x "
-    AU_REVOIR_PM = " x x x\r\n"
+    BIEN_DIT = os.linesep + "x x"
+    BONJOUR_AM = "x x " + os.linesep
+    AU_REVOIR_AM = os.linesep + "x x x" + os.linesep
+    BONJOUR_PM = "x x " + os.linesep
+    AU_REVOIR_PM = os.linesep + "x x x" + os.linesep
 
 
     @classmethod

@@ -8,6 +8,7 @@ from src.moment import Moment
 from verif_palindrome_builder import VerificateurPalindromeBuilder
 import os
 
+
 class Palindrome(unittest.TestCase):
 
     def motaleatoire(cls, length):
@@ -24,6 +25,9 @@ class Palindrome(unittest.TestCase):
     LIST_LANGUE = [LangueAnglaise,LangueFrancaise]
 
 
+    def assertLine(self,attendu,resultat,ligne):
+        ligneResult = resultat.split(os.linesep)
+        return self.assertEqual(attendu,ligneResult[ligne])
 
 
 
@@ -33,15 +37,14 @@ class Palindrome(unittest.TestCase):
         cas  = [self.MOT_ORDINAIRE,self.motaleatoire(10),self.motaleatoire(100)]
         verificateur = VerificateurPalindromeBuilder().par_defaut()
 
-
       # QUAND on verifie si ce sont des palindrome
         for chaine in cas:
             with self.subTest(chaine):
                 resultat = verificateur.verif(chaine)
+                attendu = chaine[::-1]
 
       # ALORS la chaîne est renvoyée en miroir
-                attendu = chaine[::-1]
-                self.assertEqual(attendu," ".join(resultat.split(" ")[2:-3]))
+                self.assertLine(attendu,resultat,1)
 
    
     def test_est_palindrome(self):
@@ -49,20 +52,20 @@ class Palindrome(unittest.TestCase):
       # ETANT DONNE un palindrome
         list_langue = self.LIST_LANGUE
         cas  = [self.MOT_PALINDROME,self.palindromealeatoire(10)]
-        
 
       #QUAND on l'ecrit
         for langue in list_langue:
             for chaine in cas:
-                with self.subTest(chaine):
+                with self.subTest(chaine = chaine, langue = langue):
                     
                     verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
-
-                    resultat = verificateur.verif(chaine)
+                    resultat= verificateur.verif(chaine)
+                    attendu1 = chaine
+                    attendu2 = langue.feliciter().split(os.linesep)[1]
 
       #ALORS celui-ci est renvoyé #ET « Bien dit » est envoyé ensuite
-                    self.assertEqual(chaine + langue.feliciter(), " ".join(resultat.split(" ")[2:-3]))
-        
+                    self.assertLine(attendu1, resultat, 1)
+                    self.assertLine(attendu2, resultat, 2)
 
 
     def test_bonjour_aurevoir_matin(self):
@@ -77,7 +80,7 @@ class Palindrome(unittest.TestCase):
         for langue in list_langue:
 
             for chaine in cas:
-                with self.subTest(chaine):
+                with self.subTest(chaine = chaine, langue = langue):
                     verificateur = VerificateurPalindromeBuilder().avec_langue(langue).avec_moment(moment_de_la_journee).build()
                     resultat = verificateur.verif(chaine)
 
@@ -87,24 +90,25 @@ class Palindrome(unittest.TestCase):
                 result = [bonjour+" "," "+aurevoir]
                 self.assertEqual(langue.saluer(moment_de_la_journee), result)
 
-    def test_saut_de_ligne_a_la_fin(self):
+
+    def test_saut_ligne_fin(self):
 
       # ETANT DONNE une chaine de caractere
       # (ET tout les parametre par defaut)
       cas = cas  = [self.MOT_ORDINAIRE,self.MOT_PALINDROME]
       list_langue = self.LIST_LANGUE
 
-
       # QUAND on arrive a la derniere ligne
       for langue in list_langue:
           verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
           for chaine in cas:
-              with self.subTest(chaine):
+              with self.subTest(chaine = chaine, langue = langue):
                   resultat = verificateur.verif(chaine)
                   resultat =resultat[-len(os.linesep):]
           # ALORS on trouve un saut de ligne
                   attendu = os.linesep
                   self.assertEqual(attendu, resultat)
+
 
 if __name__ == '__main__':
     unittest.main()

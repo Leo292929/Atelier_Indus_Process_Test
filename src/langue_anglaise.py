@@ -1,12 +1,14 @@
+import os
+
 from moment import Moment
 
 
 class LangueAnglaise:
-    BIEN_DIT = " Well said"
-    BONJOUR_AM = "Hello am "
-    AU_REVOIR_AM = " Good bye am\r\n"
-    BONJOUR_PM = "Hello pm "
-    AU_REVOIR_PM = " Good bye pm\r\n"
+    BIEN_DIT = os.linesep + "Well said"
+    BONJOUR_AM = "Hello am" + os.linesep
+    AU_REVOIR_AM = os.linesep + "Good bye am" + os.linesep
+    BONJOUR_PM = "Hello pm" + os.linesep
+    AU_REVOIR_PM = os.linesep + "Good bye pm" + os.linesep
 
     @classmethod
     def feliciter(cls):
