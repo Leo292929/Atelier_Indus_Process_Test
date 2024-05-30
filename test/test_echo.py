@@ -3,7 +3,7 @@ import random
 import string
 from src.verificateur_palindrome import VerificateurPalindrome
 from src.langue_anglaise import LangueAnglaise
-from src.langue_francaise import LangueFrançaise
+from src.langue_francaise import LangueFrancaise
 from verif_palindrome_builder import VerificateurPalindromeBuilder
 
 class Palindrome(unittest.TestCase):
@@ -19,7 +19,11 @@ class Palindrome(unittest.TestCase):
     MOT_ORDINAIRE = "palindrome"
     MOT_PALINDROME = "kayak"
 
-    LIST_LANGUE = [LangueAnglaise,LangueFrançaise]
+    LIST_LANGUE = [LangueAnglaise,LangueFrancaise]
+
+
+
+
 
     def test_pas_palindrome(self):
         
@@ -28,7 +32,7 @@ class Palindrome(unittest.TestCase):
         verificateur = VerificateurPalindromeBuilder().par_defaut()
 
 
-      # QUAND on verifie si se sont des palindrome
+      # QUAND on verifie si ce sont des palindrome
         for chaine in cas:
             with self.subTest(chaine):
                 resultat = verificateur.verif(chaine)
@@ -47,11 +51,11 @@ class Palindrome(unittest.TestCase):
 
       #QUAND on l'ecrit
         for langue in list_langue:
-
-            verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
-
             for chaine in cas:
                 with self.subTest(chaine):
+                    
+                    verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
+
                     resultat = verificateur.verif(chaine)
 
       #ALORS celui-ci est renvoyé #ET « Bien dit » est envoyé ensuite
@@ -69,10 +73,10 @@ class Palindrome(unittest.TestCase):
       #QUAND on la saisie
         for langue in list_langue:
 
-            verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
 
             for chaine in cas:
                 with self.subTest(chaine):
+                    verificateur = VerificateurPalindromeBuilder().avec_langue(langue).build()
                     resultat = verificateur.verif(chaine)
 
       #ALORS « Bonjour » est envoyé avant toute réponse #ET « au revoir » est envoyé a la fin

@@ -1,12 +1,13 @@
 class LangueAnglaise:
-    WELL_SAID = " Well said"
-    HELLO = "Hello "
-    GOOD_BYE = " Good bye"
+    BIEN_DIT = " Well said"
+    BONJOUR = "Hello "
+    AU_REVOIR = " Good bye"
 
     @classmethod
     def feliciter(cls):
-        return cls.WELL_SAID
+        return cls.BIEN_DIT
+
     @classmethod
     def saluer(cls):
-        return [cls.HELLO,cls.GOOD_BYE]
+        return [cls.BONJOUR, cls.AU_REVOIR]
 
