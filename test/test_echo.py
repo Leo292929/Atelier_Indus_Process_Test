@@ -18,7 +18,7 @@ class Palindrome(unittest.TestCase):
         lettres = string.ascii_lowercase
         moitie = ''.join(random.choice(lettres) for i in range(length))
         return (moitie+moitie[::-1])
-    
+
     MOT_ORDINAIRE = "palindrome"
     MOT_PALINDROME = "kayak"
 
