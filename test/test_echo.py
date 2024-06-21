@@ -85,10 +85,10 @@ class Palindrome(unittest.TestCase):
                     resultat = verificateur.verif(chaine)
 
       #ALORS « Bonjour am » est envoyé avant toute réponse #ET « au revoir am » est envoyé a la fin
-                bonjour = resultat.split(" ")[0]+" "+resultat.split(" ")[1]
-                aurevoir = " ".join(resultat.split(" ")[-3:])
-                result = [bonjour+" "," "+aurevoir]
-                self.assertEqual(langue.saluer(moment_de_la_journee), result)
+                    attendu1 = langue.saluer(Moment)[0].rstrip(os.linesep)
+                    attendu2 = langue.saluer(Moment)[1].lstrip(os.linesep).rstrip(os.linesep)
+                    self.assertLine(attendu1, resultat, 0)
+                    self.assertLine(attendu2, resultat, -2)
 
 
     def test_saut_ligne_fin(self):

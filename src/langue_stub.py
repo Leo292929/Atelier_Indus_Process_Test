@@ -1,7 +1,8 @@
 from moment import Moment
 import os
 
-class langueDefaut:
+
+class LangueStub:
     BIEN_DIT = os.linesep + "x x"
     BONJOUR_AM = "x x " + os.linesep
     AU_REVOIR_AM = os.linesep + "x x x" + os.linesep

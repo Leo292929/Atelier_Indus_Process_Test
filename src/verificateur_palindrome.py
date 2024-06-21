@@ -1,7 +1,7 @@
 
 class VerificateurPalindrome:
 
-    def __init__(self, langue,moment):
+    def __init__(self, langue, moment):
         self.__langue = langue
         self.__moment = moment
         pass

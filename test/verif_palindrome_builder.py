@@ -1,11 +1,10 @@
-from src.langue_defaut import langueDefaut
+from src.langue_stub import LangueStub
 from src.verificateur_palindrome import VerificateurPalindrome
-
 
 
 class VerificateurPalindromeBuilder:
 
-    __langue = langueDefaut()
+    __langue = LangueStub()
     __moment = None
 
     def build(self) -> VerificateurPalindrome:

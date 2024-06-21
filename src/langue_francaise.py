@@ -1,6 +1,7 @@
 from moment import Moment
 import os
 
+
 class LangueFrancaise:
     BIEN_DIT = os.linesep + "Bien dit"
     BONJOUR_AM = "Bonjour" + os.linesep
