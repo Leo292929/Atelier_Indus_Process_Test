@@ -1,4 +1,4 @@
-from src.langue_stub import LangueStub
+from domaine.langue_stub import LangueStub
 from src.verificateur_palindrome import VerificateurPalindrome
 
 

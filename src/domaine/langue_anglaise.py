@@ -1,7 +1,5 @@
 import os
 
-from moment import Moment
-
 
 class LangueAnglaise:
     BIEN_DIT = os.linesep + "Well said"

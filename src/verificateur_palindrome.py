@@ -9,7 +9,7 @@ class VerificateurPalindrome:
     def verif(self, chaine):
 
         felicitations = self.__langue.feliciter()
-        salutations = self.__langue.saluer(self.__moment)
+        salutations = self.__langue.saluer(self.__moment.matin_soir())
         bonjour = salutations[0]
         aurevoir = salutations[1]
 

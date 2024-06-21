@@ -1,14 +1,12 @@
-from moment import Moment
 import os
 
 
-class LangueStub:
-    BIEN_DIT = os.linesep + "x x"
-    BONJOUR_AM = "x x " + os.linesep
-    AU_REVOIR_AM = os.linesep + "x x x" + os.linesep
-    BONJOUR_PM = "x x " + os.linesep
-    AU_REVOIR_PM = os.linesep + "x x x" + os.linesep
-
+class LangueFrancaise:
+    BIEN_DIT = os.linesep + "Bien dit"
+    BONJOUR_AM = "Bonjour am" + os.linesep
+    AU_REVOIR_AM = os.linesep + "Au revoir am" + os.linesep
+    BONJOUR_PM = "Bonjour pm" + os.linesep
+    AU_REVOIR_PM = os.linesep + "Au revoir pm" + os.linesep
 
     @classmethod
     def feliciter(cls):
@@ -20,4 +18,3 @@ class LangueStub:
             return [cls.BONJOUR_AM, cls.AU_REVOIR_AM]
         else:
             return [cls.BONJOUR_PM, cls.AU_REVOIR_PM]
-

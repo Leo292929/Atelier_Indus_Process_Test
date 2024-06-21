@@ -1,10 +1,9 @@
 import unittest
 import random
 import string
-from src.verificateur_palindrome import VerificateurPalindrome
-from src.langue_anglaise import LangueAnglaise
-from src.langue_francaise import LangueFrancaise
-from src.moment import Moment
+from domaine.langue_anglaise import LangueAnglaise
+from domaine.langue_francaise import LangueFrancaise
+from moment import Moment
 from verif_palindrome_builder import VerificateurPalindromeBuilder
 import os
 
