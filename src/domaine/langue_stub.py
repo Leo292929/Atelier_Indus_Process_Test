@@ -2,11 +2,11 @@ import os
 
 
 class LangueStub:
-    BIEN_DIT = os.linesep + "x x"
-    BONJOUR_AM = "x x " + os.linesep
-    AU_REVOIR_AM = os.linesep + "x x x" + os.linesep
-    BONJOUR_PM = "x x " + os.linesep
-    AU_REVOIR_PM = os.linesep + "x x x" + os.linesep
+    BIEN_DIT = os.linesep + "x"
+    BONJOUR_AM = "x" + os.linesep
+    AU_REVOIR_AM = os.linesep + "x" + os.linesep
+    BONJOUR_PM = "x" + os.linesep
+    AU_REVOIR_PM = os.linesep + "x" + os.linesep
 
     @classmethod
     def feliciter(cls):

@@ -1,17 +1,15 @@
 from datetime import datetime
+import enum
 
+class Moment(enum.Enum):
+    Matin = 1
+    Soir = 0
 
-class Moment:
-    def __init__(self):
-        now = datetime.now()
-        self.current_hour = now.hour
-
+    @classmethod
     def matin_soir(self):
-        if self.current_hour < 12:
-            moment = 0
-        else:
-            moment = 1
+        if heure < 12:
+            return Moment.Matin
 
-        return moment
+        return Moment.Soir
 
 

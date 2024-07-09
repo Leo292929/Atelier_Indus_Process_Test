@@ -32,7 +32,7 @@ class Palindrome(unittest.TestCase):
 
     def test_pas_palindrome(self):
         
-      # ETANT DONNE 1 liste de mots
+      # ETANT DONNE 1 liste de mots ordinaires
         cas  = [self.MOT_ORDINAIRE,self.motaleatoire(10),self.motaleatoire(100)]
         verificateur = VerificateurPalindromeBuilder().par_defaut()
 
@@ -48,7 +48,7 @@ class Palindrome(unittest.TestCase):
    
     def test_est_palindrome(self):
 
-      # ETANT DONNE un palindrome
+      # ETANT DONNE un palindrome et un utilisateur parlant une langue
         list_langue = self.LIST_LANGUE
         cas  = [self.MOT_PALINDROME,self.palindromealeatoire(10)]
 
@@ -62,7 +62,7 @@ class Palindrome(unittest.TestCase):
                     attendu1 = chaine
                     attendu2 = langue.feliciter().split(os.linesep)[1]
 
-      #ALORS celui-ci est renvoyé #ET « Bien dit » est envoyé ensuite
+      #ALORS celui-ci est renvoyé #ET « Bien dit » est envoyé ensuite dans la langue de l'utilisateur
                     self.assertLine(attendu1, resultat, 1)
                     self.assertLine(attendu2, resultat, 2)
 
@@ -73,7 +73,9 @@ class Palindrome(unittest.TestCase):
       # ET un moment de la journée
         list_langue = self.LIST_LANGUE
         cas  = [self.MOT_ORDINAIRE,self.MOT_PALINDROME]
-        moment_de_la_journee = Moment
+
+      # A adapter manuellement?
+        moment_de_la_journee = 1
 
       #QUAND on la saisie
         for langue in list_langue:
